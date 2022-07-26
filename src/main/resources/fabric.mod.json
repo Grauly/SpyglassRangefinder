@@ -1,29 +1,32 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "spyglassrangefinder",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Spyglass Rangefinder",
+  "description": "Display the range to the targeted block when using a spyglass",
   "authors": [
-    "Me!"
+    "Grauly"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "",
+    "sources": "https://github.com/Grauly/SpyglassRangefinder"
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "license": "MIT",
+  "icon": "assets/spyglassrangefinder/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "grauly.spyglassrangefinder.SpyglassRangefinder"
+    ],
+    "client": [
+      "grauly.spyglassrangefinder.SpyglassRangefinderClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "spyglassrangefinder.mixins.json"
   ],
 
   "depends": {
