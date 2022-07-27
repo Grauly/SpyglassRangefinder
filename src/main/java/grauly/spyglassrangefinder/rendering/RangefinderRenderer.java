@@ -1,4 +1,4 @@
-package grauly.spyglassrangefinder;
+package grauly.spyglassrangefinder.rendering;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawableHelper;
