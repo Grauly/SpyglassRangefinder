@@ -17,7 +17,7 @@ public class RangefinderRenderer {
                 var height = mc.getWindow().getScaledHeight();
                 var distance = Math.sqrt(result.squaredDistanceTo(mc.player));
                 var showSting = String.format("%.2f",distance);
-                DrawableHelper.drawCenteredText(matrices,mc.textRenderer,showSting,width/2 + mc.textRenderer.getWidth(showSting)/2 + 10,height/2 - mc.textRenderer.fontHeight/2,-1);
+                DrawableHelper.drawCenteredTextWithShadow(matrices,mc.textRenderer,showSting,width/2 + mc.textRenderer.getWidth(showSting)/2 + 10,height/2 - mc.textRenderer.fontHeight/2,-1);
             }
         }
     }
