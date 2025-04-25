@@ -10,7 +10,7 @@ public class RangefinderRenderer {
     private static MinecraftClient mc = MinecraftClient.getInstance();
     public static void onRender(DrawContext context, RenderTickCounter renderTickCounter) {
         if(mc.player.isUsingSpyglass()) {
-            var result = mc.player.raycast(1024,renderTickCounter.getTickDelta(false),false);
+            var result = mc.player.raycast(1024, renderTickCounter.getTickProgress(false),false);
             if(!result.getType().equals(HitResult.Type.MISS)) {
                 var width = mc.getWindow().getScaledWidth();
                 var height = mc.getWindow().getScaledHeight();
