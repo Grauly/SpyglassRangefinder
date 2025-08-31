@@ -37,13 +37,19 @@ processResources {
 	inputs.property "version", project.version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand("version": project.mod_version, "loader_version": project.loader_version, "minecraft_version": project.minecraft_version)
 	}
 }
 
 tasks.withType(JavaCompile).configureEach {
 	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
 	it.options.release = 17
+}
+
+tasks.register("printVersion") {
+	doLast {
+		println("MOD_VERSION=${project.version}")
+	}
 }
 
 java {
