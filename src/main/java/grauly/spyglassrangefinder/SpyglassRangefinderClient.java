@@ -14,11 +14,12 @@ import org.lwjgl.glfw.GLFW;
 public class SpyglassRangefinderClient implements ClientModInitializer {
 
     public static final Identifier RANGEFINDER_LAYER = Identifier.of(SpyglassRangefinder.MODID, "rangefinder");
-    public static final KeyBinding tpKeyBind = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-            "key." + SpyglassRangefinder.MODID + "teleport",
+    public static final KeyBinding.Category SPYGLASS_RANGEFINDER_CATEGORY = KeyBinding.Category.create(Identifier.of(SpyglassRangefinder.MODID, "main"));
+    public static final KeyBinding TP_KEY_BINDS = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+            "key." + SpyglassRangefinder.MODID + ".teleport",
             InputUtil.Type.KEYSYM,
             GLFW.GLFW_KEY_GRAVE_ACCENT,
-            "category." + SpyglassRangefinder.MODID + ".category"
+            SPYGLASS_RANGEFINDER_CATEGORY
     ));
 
     @Override

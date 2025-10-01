@@ -8,7 +8,7 @@ public class TeleportTrigger {
     public static void tick(MinecraftClient minecraftClient) {
         cooldown -= 1;
         if (cooldown > 0) return;
-        if (!SpyglassRangefinderClient.tpKeyBind.wasPressed()) return;
+        if (!SpyglassRangefinderClient.TP_KEY_BINDS.wasPressed()) return;
         if (!minecraftClient.player.isUsingSpyglass()) return;
         var result = minecraftClient.player.raycast(1024, minecraftClient.getRenderTickCounter().getTickProgress(false),false);
         if (result.getType() != HitResult.Type.BLOCK) return;
