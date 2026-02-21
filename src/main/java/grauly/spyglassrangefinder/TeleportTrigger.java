@@ -1,18 +1,19 @@
 package grauly.spyglassrangefinder;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.util.hit.HitResult;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.phys.HitResult;
 
 public class TeleportTrigger {
     private static int cooldown = 0;
-    public static void tick(MinecraftClient minecraftClient) {
+    public static void tick(Minecraft minecraftClient) {
         cooldown -= 1;
         if (cooldown > 0) return;
-        if (!SpyglassRangefinderClient.TP_KEY_BINDS.wasPressed()) return;
-        if (!minecraftClient.player.isUsingSpyglass()) return;
-        var result = minecraftClient.player.raycast(1024, minecraftClient.getRenderTickCounter().getTickProgress(false),false);
+        if (!SpyglassRangefinderClient.TP_KEY_BINDS.isDown()) return;
+        if (!minecraftClient.player.isScoping()) return;
+        var result = minecraftClient.player.pick(1024, minecraftClient.getDeltaTracker().getGameTimeDeltaPartialTick(false),false);
         if (result.getType() != HitResult.Type.BLOCK) return;
-        minecraftClient.getNetworkHandler().sendChatCommand("tp " + result.getPos().x + " " + result.getPos().y + " " + result.getPos().z);
+        minecraftClient.getConnection().sendCommand("tp " + result.getLocation().x + " " + result.getLocation().y + " " + result.getLocation().z);
         cooldown = 10;
     }
 }
